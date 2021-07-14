@@ -4,6 +4,7 @@ import { delay, map } from 'rxjs/operators';
 
 import { Brand } from '../shared/models/brand';
 import { Pagination } from '../shared/models/pagination';
+import { Product } from '../shared/models/product';
 import { ProductType } from '../shared/models/product-type';
 import { ShopParams } from '../shared/models/shop-params';
 
@@ -36,6 +37,10 @@ export class ShopService {
     return this.http.get<Pagination>(`${this.baseUrl}products`, {
       params,
     });
+  }
+
+  getProduct(id: number) {
+    return this.http.get<Product>(this.baseUrl + 'products/' + id);
   }
 
   getBrands() {
